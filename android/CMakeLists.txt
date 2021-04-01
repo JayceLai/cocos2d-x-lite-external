@@ -119,6 +119,17 @@ set_target_properties(glslang-default-resource-limits PROPERTIES
 )
 set(glslang_libs_name glslang OGLCompiler OSDependent SPIRV glslang-default-resource-limits)
 
+if(USE_PHYSICS_PHYSX)
+  set(PhysXSDK PhysXCooking PhysXCharacterKinematic PhysXVehicle PhysXExtensions PhysX PhysXPvdSDK PhysXCommon PhysXFoundation)
+  foreach(PX IN LISTS PhysXSDK)
+    add_library(${PX} STATIC IMPORTED GLOBAL)
+    set_target_properties(${PX} PROPERTIES
+      IMPORTED_LOCATION ${platform_spec_path}/PhysX/lib${PX}_static.a
+    )
+  endforeach()
+else()
+  set(PhysXSDK)
+endif()
 
 list(APPEND CC_EXTERNAL_LIBS
     freetype
@@ -130,6 +141,7 @@ list(APPEND CC_EXTERNAL_LIBS
     z
     android_platform
     ${glslang_libs_name}
+    ${PhysXSDK}
 )
 
 
