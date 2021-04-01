@@ -238,6 +238,11 @@ if(USE_PHYSICS_PHYSX)
       IMPORTED_LOCATION_RELEASE ${CMAKE_CURRENT_LIST_DIR}/libs/PhysX/release/${PX}_static_32.lib
     )
   endforeach()
+  # list(APPEND CC_EXTERNAL_INCLUDES 
+  #   ${CMAKE_CURRENT_LIST_DIR}/include/PhysX/PhysX/include
+  #   ${CMAKE_CURRENT_LIST_DIR}/include/PhysX/PhysX/source
+  #   ${CMAKE_CURRENT_LIST_DIR}/include/PhysX/PxShared/include
+  # )
 else()
   set(PhysXSDK)
 endif()

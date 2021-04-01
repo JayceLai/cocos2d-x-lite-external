@@ -150,5 +150,8 @@ list(APPEND CC_EXTERNAL_INCLUDES
   ${platform_spec_path}/include/v8
   ${platform_spec_path}/include/uv
   ${platform_spec_path}/include/glslang
+  # ${platform_spec_path}/include/PhysX/PhysX/include
+  # ${platform_spec_path}/include/PhysX/PhysX/source
+  # ${platform_spec_path}/include/PhysX/PxShared/include
   ${CMAKE_ANDROID_NDK}/sources/android/native_app_glue
 )
